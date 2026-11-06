@@ -90,7 +90,6 @@ function inferPageType(rawUrl: string): string {
 }
 
 function offlineFixtureResponse(rawUrl: string): Response {
-  const encoder = new TextEncoder();
   const fixture = {
     mode: "offline_fixture",
     source: "Rival local fixture mode",

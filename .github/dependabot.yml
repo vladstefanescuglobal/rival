@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "07:00"
+      timezone: Europe/Bucharest
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: deps(actions)
+    groups:
+      actions:
+        patterns: ["*"]
+        update-types: [minor, patch]
