@@ -150,60 +150,74 @@ describe("pushCompetitorToQuiver", () => {
     competitorPageFindManyMock.mockResolvedValue([
       {
         type: "homepage",
-        scans: [{ rawResult: {
-          primary_tagline: "Build faster",
-          sub_tagline: "Ship with confidence",
-          positioning_statement: "For product teams",
-          primary_cta_text: "Start now",
-          key_differentiators: ["Fast", false, "Simple"]
-        } }]
+        scans: [
+          {
+            rawResult: {
+              primary_tagline: "Build faster",
+              sub_tagline: "Ship with confidence",
+              positioning_statement: "For product teams",
+              primary_cta_text: "Start now",
+              key_differentiators: ["Fast", false, "Simple"]
+            }
+          }
+        ]
       },
       {
         type: "pricing",
-        scans: [{ rawResult: {
-          pricing_transparent: true,
-          has_free_tier: true,
-          free_tier_limits: "3 projects",
-          tiers: [
-            { name: "Pro", price: "$10", per_unit: "per user", is_self_serve: false },
-            { price: "$1" },
-            null
-          ]
-        } }]
+        scans: [
+          {
+            rawResult: {
+              pricing_transparent: true,
+              has_free_tier: true,
+              free_tier_limits: "3 projects",
+              tiers: [{ name: "Pro", price: "$10", per_unit: "per user", is_self_serve: false }, { price: "$1" }, null]
+            }
+          }
+        ]
       },
       {
         type: "careers",
-        scans: [{ rawResult: {
-          total_count: 4,
-          hiring_trend: "growing",
-          devrel_roles_open: true,
-          leadership_roles_open: true,
-          aggregate_tech_stack: ["TypeScript", 2, "Postgres"]
-        } }]
+        scans: [
+          {
+            rawResult: {
+              total_count: 4,
+              hiring_trend: "growing",
+              devrel_roles_open: true,
+              leadership_roles_open: true,
+              aggregate_tech_stack: ["TypeScript", 2, "Postgres"]
+            }
+          }
+        ]
       },
       {
         type: "reviews",
-        scans: [{ rawResult: {
-          platform: "G2",
-          overall_rating: 4.8,
-          review_count: 25,
-          top_praise_themes: ["support", 1, "speed"],
-          top_complaint_themes: ["price"]
-        } }]
+        scans: [
+          {
+            rawResult: {
+              platform: "G2",
+              overall_rating: 4.8,
+              review_count: 25,
+              top_praise_themes: ["support", 1, "speed"],
+              top_complaint_themes: ["price"]
+            }
+          }
+        ]
       },
       {
         type: "github",
-        scans: [{ rawResult: {
-          stars: 1200,
-          forks: 40,
-          last_commit_date: "2026-11-01",
-          topics: ["agents", 2, "sdk"]
-        } }]
+        scans: [
+          {
+            rawResult: {
+              stars: 1200,
+              forks: 40,
+              last_commit_date: "2026-11-01",
+              topics: ["agents", 2, "sdk"]
+            }
+          }
+        ]
       }
     ]);
-    scanFindManyMock.mockResolvedValue([
-      { diffSummary: null, page: { label: "Changelog", type: "changelog" } }
-    ]);
+    scanFindManyMock.mockResolvedValue([{ diffSummary: null, page: { label: "Changelog", type: "changelog" } }]);
 
     const { pushCompetitorToQuiver } = await import("@/lib/quiver");
     await pushCompetitorToQuiver(COMPETITOR_ID, NAME, BASE_URL);

@@ -56,7 +56,9 @@ describe("POST /api/deep-dive/save", () => {
     expect(response.status).toBe(200);
     expect(await response.json()).toEqual({ ok: true });
     expect(deepDiveCreateMock).toHaveBeenCalledWith(
-      expect.objectContaining({ data: expect.objectContaining({ competitorId: "cmp_1", result: { summary: "Updated" } }) })
+      expect.objectContaining({
+        data: expect.objectContaining({ competitorId: "cmp_1", result: { summary: "Updated" } })
+      })
     );
     expect(apiLogCreateMock).toHaveBeenCalledWith(
       expect.objectContaining({ data: expect.objectContaining({ status: "success", resultQuality: "full" }) })
